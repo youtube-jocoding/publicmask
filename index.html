@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>내 주변 마스크 찾기</title>
+    <meta name="description" content="마스크 5부제에 따른 내 주변 공적 마스크 판매처 정보 및 재고를 알려주는 서비스 입니다.">
+    <meta name="keywords"
+        content="공적 마스크,마스크 재고,마스크 대리구매,공적 마스크 판매처,마스크 알리미,마스크알리미,마스크알림,공적마스크 판매약국,공적마스크 약국 판매처,마스크 5부제,마스크 5부제 정리,내 주변 마스크,내 주변 마스크 찾기,코로나19">
+    <meta name="author" content="조코딩">
+    <meta name="subject" content="내 주변 공적 마스크 판매 정보">
+    <link rel="canonical" href="https://publicmask.com/" />
+    <meta property="og:url" content="https://publicmask.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="내 주변 마스크 찾기" />
+    <meta property="og:description" content="마스크 5부제에 따른 내 주변 공적 마스크 판매처 정보 및 재고를 알려주는 서비스 입니다." />
+    <meta property="og:image"
+        content="https://cdn.inflearn.com/public/users/thumbnails/181806/bff57ae0-7948-4a8f-b1c2-72d4625069ed" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"
+        type="text/javascript"></script>
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=56eptpvv7c"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"> -->
+    <!-- <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff"> -->
+    <!-- <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png"> -->
+    <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e64b3727e862b06"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145482737-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-145482737-5');
+    </script>
+</head>
+
+<body>
+    <h1 class="d-flex justify-content-center pt-5 pb-2 container">내 주변 마스크 찾기</h1>
+    <section>
+        <div class="container d-flex justify-content-center">
+            <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" class="youtube-link">By 조코딩 유튜브 채널</a>
+            <img src="img/youtube-icon.jpg" alt="youtube-icon" class="youtube-icon">
+        </div>
+    </section>
+    <section class="container d-flex flex-column justify-content-center">
+        <h2 class="text-center">마스크 5부제</h2>
+        <p class="text-center">2020년 3월 9일(월)부터 마스크 5부제가 시행됩니다. 1인당 1주일에 최대 2매 구매 가능하며 신분증은 필참입니다. (ex.
+            9<strong>0</strong>년생 금요일,
+            미구매시 주말 구매 가능)</p>
+        <p class="text-center">만 10살 이하(2010년생 포함 이후 출생), 만 80살 이상(1940년생 포함 이전 출생)은 대리구매가 가능하며 대리구매자의 신분증과 주민등록등본 등
+            출생연도와 주민등록상 동거인임을 증명할 수 있는 서류를 지참해야합니다.</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">월</th>
+                    <th scope="col">화</th>
+                    <th scope="col">수</th>
+                    <th scope="col">목</th>
+                    <th scope="col">금</th>
+                    <th scope="col">토</th>
+                    <th scope="col">일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">생년월일 끝자리</th>
+                    <td>1, 6</td>
+                    <td>2, 7</td>
+                    <td>3, 8</td>
+                    <td>4, 9</td>
+                    <td>5, 0</td>
+                    <td>주간 미구매자</td>
+                    <td>주간 미구매자</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="container">
+        <h2 class="text-center">공적 마스크 재고 조회(5km 이내)</h2>
+        <span class="d-flex justify-content-center pt-2 pb-3">(위치 데이터 접근 허용이 필요합니다.)</span>
+        <div id="map" style="width:100%; height:400px;"></div>
+    </section>
+    <section class="mt-3 d-flex justify-content-center">
+        <div class="addthis_inline_share_toolbox"></div>
+    </section>
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">내 주변 마스크 찾기</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>아직 서비스 정식오픈 전입니다.</h3>
+                    <p>정식 오픈 일정은 미정이나 잠정적으로 3월 10일 오픈 예정이며 2020년 3월 15일 까지는 베타테스트 기간입니다.</p>
+                    <p>이 사이트는 공적 마스크 실시간 재고 조회 API를 기반으로 제작되었습니다.</p>
+                    <p>API는 5분마다 갱신되며 <strong>제공되는 정보가 5분 이상 지연될 수 있다는 점</strong> 참고해주시기 바랍니다.</p>
+                    <p>이 서비스 이용하시려면 <strong>위치 정보 권한의 동의가 필요합니다.</strong></p>
+                    <p>마스크를 구매하실 때 고생하시는 약사분들 및 관계자분들께 <strong>감사의 인사 한번씩 드려보는 것은 어떨까요?</strong></p>
+                    <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg?sub_confirmation=1">by 유튜브 조코딩
+                        채널</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">거부합니다.</button>
+                    <button type="button" class="btn btn-primary" onclick="agree()">동의합니다.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer pt-5 pb-4 container d-flex justify-content-center">
+        <div>
+            <p>&copy; 조코딩 JoCoding 2020. All Rights Reserved.</p>
+            <li class="d-flex justify-content-center">
+                <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg?sub_confirmation=1"
+                    title="조코딩 유튜브 채널">만드는 방법이 궁금하다면?</a>
+            </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $('#myModal').modal('show');
+    </script>
+    <script>
+        function agree() {
+            $('#myModal').modal('hide');
+            var map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.5666805, 126.9784147),
+                zoom: 15,
+                mapTypeId: naver.maps.MapTypeId.NORMAL
+            });
+
+            var markers = [];
+            var infoWindows = [];
+
+            function onSuccessGeolocation(position) {
+                var location = new naver.maps.LatLng(position.coords.latitude,
+                    position.coords.longitude);
+
+                map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
+                map.setZoom(15); // 지도의 줌 레벨을 변경합니다.
+                // msg = {
+                //     count: 2,
+                //     stores: [{
+                //         addr: "경기도 광명시 오리로 351, 1층 (소하동)",
+                //         code: "31882943",
+                //         created_at: "2020/03/07 19:40:00",
+                //         lat: 37.4340861,
+                //         lng: 126.8790859,
+                //         name: "test::하늘약국",
+                //         remain_cnt: 0,
+                //         sold_cnt: 0,
+                //         sold_out: true,
+                //         stock_cnt: 0,
+                //         stock_t: "08:48",
+                //         type: "01"
+                //     }, {
+                //         addr: "경기도 광명시 오리로 358, 1층 (소하동)",
+                //         code: "31891471",
+                //         created_at: "2020/03/07 19:40:00",
+                //         lat: 37.4343159,
+                //         lng: 126.8796582,
+                //         name: "test::소하행복한약국",
+                //         remain_cnt: 0,
+                //         sold_cnt: 0,
+                //         sold_out: true,
+                //         stock_cnt: 0,
+                //         stock_t: "12:16",
+                //         type: "01"
+                //     }]
+                // }
+                //{
+                //    "count": 0,
+                //        "stores": [
+                //            {
+                //              "code": "string",
+                //            "name": "string",
+                //          "addr": "string",
+                //        "type": "string",
+                //      "lat": 0,
+                //    "lng": 0,
+                //  "stock_at": "string",
+                //"remain_stat": "string",
+                //"created_at": "string"
+                //}
+                //]
+                //}
+                $.ajax({
+                    method: "GET",
+                    url: "https://app.swaggerhub.com/apis/Promptech/public-mask-info/20200307-oas3?lat=" + location.y.toFixed(6) + "&lng=" + location.x.toFixed(6) + "&m=5000",
+                    headers: { 'accept': 'application/json' }
+                })
+                    .done(function (msg) {
+                        for (var i = 0; i < msg.count; i++) {
+                            var remainStatus = msg.stores[i].remain_stat
+                            if (remainStatus == "plenty") {
+                                var marker = new naver.maps.Marker({
+                                    position: new naver.maps.LatLng(msg.stores[i].lat, msg.stores[i].lng),
+                                    map: map,
+                                    icon: {
+                                        url: 'img/green.png', //50, 68 크기의 원본 이미지
+                                        size: new naver.maps.Size(25, 34),
+                                        scaledSize: new naver.maps.Size(25, 34),
+                                        origin: new naver.maps.Point(0, 0),
+                                        anchor: new naver.maps.Point(12, 34)
+                                    }
+                                });
+                            } else if (remainStatus == "some") {
+                                var marker = new naver.maps.Marker({
+                                    position: new naver.maps.LatLng(msg.stores[i].lat, msg.stores[i].lng),
+                                    map: map,
+                                    icon: {
+                                        url: 'img/blue.png', //50, 68 크기의 원본 이미지
+                                        size: new naver.maps.Size(25, 34),
+                                        scaledSize: new naver.maps.Size(25, 34),
+                                        origin: new naver.maps.Point(0, 0),
+                                        anchor: new naver.maps.Point(12, 34)
+                                    }
+                                });
+                            } else if (remainStatus == "few") {
+                                var marker = new naver.maps.Marker({
+                                    position: new naver.maps.LatLng(msg.stores[i].lat, msg.stores[i].lng),
+                                    map: map,
+                                    icon: {
+                                        url: 'img/red.png', //50, 68 크기의 원본 이미지
+                                        size: new naver.maps.Size(25, 34),
+                                        scaledSize: new naver.maps.Size(25, 34),
+                                        origin: new naver.maps.Point(0, 0),
+                                        anchor: new naver.maps.Point(12, 34)
+                                    }
+                                });
+                            } else {
+                                var marker = new naver.maps.Marker({
+                                    position: new naver.maps.LatLng(msg.stores[i].lat, msg.stores[i].lng),
+                                    map: map,
+                                    icon: {
+                                        url: 'img/selling.png', //50, 68 크기의 원본 이미지
+                                        size: new naver.maps.Size(25, 34),
+                                        scaledSize: new naver.maps.Size(25, 34),
+                                        origin: new naver.maps.Point(0, 0),
+                                        anchor: new naver.maps.Point(12, 34)
+                                    }
+                                });
+                            }
+                            var remainWord;
+                            switch (remainStatus) {
+                                case "some":
+                                    remainWord = "100개 이상";
+                                    break;
+                                case "few":
+                                    remainWord = "30개 ~ 100개";
+                                    break;
+                                default:
+                                    remainWord = "1개 이하";
+                            }
+
+                            var contentString = [
+                                '<div class="p-2">',
+                                '   <h4>' + msg.stores[i].name + '</h4>',
+                                '   <p>' + msg.stores[i].addr + '</p>',
+                                '   <h4>재고 수량 : ' + remainWord + '</h4>',
+                                '   <p>입고 시간 : ' + msg.stores[i].stock_at + '</p>',
+                                '   <p>기준 시각 : ' + msg.stores[i].created_at + '</p>',
+                                '   (본 데이터는 실제 데이터와 5분 이상 차이가 발생할 수 있습니다.)',
+                                '</div>'
+                            ].join('');
+
+                            var infowindow = new naver.maps.InfoWindow({
+                                content: contentString
+                            });
+                            markers.push(marker);
+                            infoWindows.push(infowindow);
+                        }
+                        naver.maps.Event.addListener(map, 'idle', function () {
+                            updateMarkers(map, markers);
+                        });
+
+                        function updateMarkers(map, markers) {
+
+                            var mapBounds = map.getBounds();
+                            var marker, position;
+
+                            for (var i = 0; i < markers.length; i++) {
+
+                                marker = markers[i]
+                                position = marker.getPosition();
+
+                                if (mapBounds.hasLatLng(position)) {
+                                    showMarker(map, marker);
+                                } else {
+                                    hideMarker(map, marker);
+                                }
+                            }
+                        }
+
+                        function showMarker(map, marker) {
+
+                            if (marker.setMap()) return;
+                            marker.setMap(map);
+                        }
+
+                        function hideMarker(map, marker) {
+
+                            if (!marker.setMap()) return;
+                            marker.setMap(null);
+                        }
+
+                        // 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
+                        function getClickHandler(seq) {
+                            return function (e) {
+                                var marker = markers[seq],
+                                    infoWindow = infoWindows[seq];
+
+                                if (infoWindow.getMap()) {
+                                    infoWindow.close();
+                                } else {
+                                    infoWindow.open(map, marker);
+                                }
+                            }
+                        }
+
+                        for (var i = 0, ii = markers.length; i < ii; i++) {
+                            naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+                        }
+                    })
+                    .fail(function (jqXHR, textStatus, errorThrown) { alert("아직 서비스 정식오픈 전입니다. (오픈 3/10 저녁 예정)") });
+                map.setCenter(location);
+            }
+
+            function onErrorGeolocation() {
+                alert("위치 데이터 접근 허용이 필요합니다.");
+            }
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+            } else {
+                alert("위치 데이터 접근 허용이 필요합니다.");
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "7cc783f4726d3";
+        wcs_do();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+@media screen and (max-width: 600px) {
+    html {
+      font-size: 10px;
+    }
+}
+.youtube-link {
+  font-family: NanumSquareR;
+  font-size: 0.8rem;
+  line-height: 1.71;
+  text-align: center;
+  color: #f73737;
+  text-decoration: underline;
+}
+.youtube-link:hover {
+  font-family: NanumSquareR;
+  font-size: 0.8rem;
+  line-height: 1.71;
+  text-align: center;
+  color: #f73737;
+  text-decoration: underline;
+}
+.youtube-icon {
+  width: 30px;
+}
