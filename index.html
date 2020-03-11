@@ -9,7 +9,7 @@
     <title>내 주변 마스크 찾기</title>
     <meta name="description" content="마스크 5부제에 따른 내 주변 공적 마스크 판매처 정보 및 재고를 알려주는 서비스 입니다.">
     <meta name="keywords"
-        content="내 주변 마스크 찾기,마스크알리미,마스크알림이,마스크알림,공적마스크 판매약국,공적마스크 약국 판매처,마스크 5부제,내 주변 마스크, 마스크 실시간 재고, 마스크 API, 마스크앱">
+        content="내 주변 마스크 찾기,마스크알리미,마스크알림이,공공마스크,공적마스크 약국,공적마스크 우체국,마스크 5부제,내 주변 마스크, 마스크 실시간 재고, 마스크 API, 마스크앱">
     <meta name="author" content="조코딩">
     <meta name="subject" content="내 주변 공적 마스크 판매 정보">
     <link rel="canonical" href="https://publicmask.com/" />
@@ -43,6 +43,7 @@
     <!-- <link rel="manifest" href="favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff"> -->
     <!-- <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <meta name="theme-color" content="#ffffff">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e64b3727e862b06"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -86,7 +87,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">생년월일 끝자리</th>
+                    <th scope="row">출생연도 끝자리</th>
                     <td>1, 6</td>
                     <td>2, 7</td>
                     <td>3, 8</td>
@@ -105,16 +106,17 @@
         <!-- Modal -->
         <div class="modal fade" id="loadMe" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
             <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div clas="loader-txt">
+                            <p>API를 불러오고 있습니다...</p>
+                            <p>(클릭하면 로딩창이 닫힙니다.)</p>
+                        </div>
+                    </div>
                 </div>
-                <div clas="loader-txt">
-                    <p>API를 불러오고 있습니다...</p>
-                </div>
-                </div>
-            </div>
             </div>
         </div>
     </section>
@@ -131,31 +133,38 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h3>아직 서비스 정식오픈 전입니다.</h3>
-                    <p><strong>정식 오픈은 3월 11일 오전 8시</strong>에 오픈 예정이며 2020년 3월 15일 까지는 베타테스트 기간입니다.</p>
-                    <p>이 사이트는 건강보험심사평가원 공적 마스크 판매 정보 API를 기반으로 제작되었습니다.</p>
-                    <p>API는 5분마다 갱신되며 <strong>제공되는 정보가 5분 이상 지연될 수 있다는 점</strong> 참고해주시기 바랍니다.</p>
-                    <p>이 서비스 이용하시려면 <strong>위치 정보 권한의 동의가 필요합니다.</strong></p>
-                    <p>마스크를 구매하실 때 고생하시는 약사분들 및 관계자분들께 <strong>감사의 인사 한번씩 드려보는 것은 어떨까요?</strong></p>
-                    <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg">by 유튜브 조코딩 채널</a>
-                </div>
-                <!-- <div class="modal-body">
                     <h3>꼭 아래 내용을 확인해주세요!</h3>
                     <p>2020년 3월 15일 까지는 시범 운영 기간입니다.</p>
                     <p>이 사이트는 건강보험심사평가원 공적 마스크 판매 정보 API를 기반으로 제작되었습니다.</p>
+                    <p>해당 API는 <strong>08시부터 23시 사이에만 운영됩니다.</strong></p>
                     <p>API는 5분마다 갱신되며 <strong>제공되는 정보가 5분 이상 지연될 수 있다는 점</strong> 참고해주시기 바랍니다.</p>
                     <p>이 서비스 이용하시려면 <strong>위치 정보 권한의 동의가 필요합니다.</strong></p>
                     <p>마스크를 구매하실 때 고생하시는 약사분들 및 관계자분들께 <strong>감사의 인사 한번씩 드려보는 것은 어떨까요?</strong></p>
+                    <p>마스크 데이터 문의 maskdata@nia.or.kr</p>
                     <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg">by 유튜브 조코딩 채널</a>
-                </div> -->
+                </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">거부합니다.</button>
-                    <button type="button" class="btn btn-primary" onclick="agree()">동의합니다.</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">거부합니다.</button>
+                    <button type="button" class="btn btn-primary" onclick="agree()">동의합니다.</button>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="footer pt-5 pb-4 container d-flex justify-content-center">
+    <section class="container pt-2">
+        <p class="text-center">마스크 데이터 문의 maskdata@nia.or.kr</p>
+        <div id="disqus_thread"></div>
+    </section>
+    <script>
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://publicmask.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>javascript 허용이 필요합니다. <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    <footer class="footer pt-5 pb-5 container d-flex justify-content-center">
         <div>
             <p>&copy; 조코딩 JoCoding 2020. All Rights Reserved.</p>
             <li class="d-flex justify-content-center">
@@ -184,12 +193,7 @@
                 zoom: 15,
                 mapTypeId: naver.maps.MapTypeId.NORMAL
             });
-            $("#loadMe").modal({
-                backdrop: "static", //remove ability to close modal with click
-                keyboard: false, //remove option to close with keyboard
-                show: true //Display loader!
-            });
-
+            $("#loadMe").modal('toggle');
             var markers = [];
             var infoWindows = [];
 
@@ -277,6 +281,9 @@
                 })
                     .done(function (msg) {
                         for (var i = 0; i < msg.count; i++) {
+                            if (i == 0) {
+                                $("#loadMe").modal('toggle');
+                            }
                             var remainStatus = msg.stores[i].remain_stat
                             if (remainStatus == "plenty") {
                                 var marker = new naver.maps.Marker({
@@ -359,7 +366,6 @@
                             markers.push(marker);
                             infoWindows.push(infowindow);
                         }
-                        $("#loadMe").modal("hide");
                         naver.maps.Event.addListener(map, 'idle', function () {
                             updateMarkers(map, markers);
                         });
@@ -411,11 +417,15 @@
                             naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
                         }
                     })
-                    .fail(function (jqXHR, textStatus, errorThrown) { alert("API 서버의 오류가 발생하였습니다. 잠시 후 다시 시도해주세요.") });
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        $("#loadMe").modal('toggle');
+                        alert("API 서버의 오류가 발생하였습니다. 잠시 후 다시 시도해주세요.")
+                    });
                 map.setCenter(location);
             }
 
             function onErrorGeolocation() {
+                $("#loadMe").modal('toggle');
                 alert("위치 데이터 접근 허용이 필요합니다.");
             }
 
